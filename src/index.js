@@ -73,13 +73,7 @@ class EmailVerifier {
         } else {
             throw new Error('Missing email service or server params')
         }
-        this.transporter = nodemailer.createTransport({
-            service: 'Gmail',
-            auth: {
-                user,
-                pass,
-            },
-        })
+        this.transporter = nodemailer.createTransport(transportOptions)
         this.from = from
         this.confirmSubject = confirmSubject
         this.receiveSubject = receiveSubject
